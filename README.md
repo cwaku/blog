@@ -1,24 +1,48 @@
-# README
+# Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> The Blog app is a classic example of a blog website. A fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby on Rails
+- Ruby
 
-* System dependencies
+## Prerequisites
 
-* Configuration
+- Ruby
+- Ruby on Rails
+- PostgreSQL
 
-* Database creation
+## Install
 
-* Database initialization
+- Ruby
+- Ruby on Rails(as a gem)
+- Postgresql database
 
-* How to run the test suite
+## Getting Started
 
-* Services (job queues, cache servers, search engines, etc.)
+To get a local copy of the app, run the following commans in your terminal:
+- `git clone https://github.com/cwaku/blog.git`
+- `cd blog`
+- `bundle install`
 
-* Deployment instructions
+Run the server with:
+- `rails s`
 
-* ...
+## Author
+
+👤 **Ricky Mormor**
+
+- GitHub: [@cwaku](https://github.com/cwaku)
+- LinkedIn: [Ricky Mormor](www.linkedin.com/in/rickymormor)
+- Instagram: [@rickymormor](https://instagram.com/rickymormor)
+- Twitter: [@rickymormor](https://twitter.com/rickymormor)
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
