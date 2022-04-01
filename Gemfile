@@ -45,6 +45,11 @@ gem 'bootsnap', require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
+gem 'ffi'
+
+# Add controller helper methods
+gem 'rails-controller-testing'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -69,4 +74,9 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+end
+
+# Run against this stable release
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
 end
