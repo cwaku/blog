@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  after_save :update_post_counter
   belongs_to :author, class_name: 'User'
   has_many :comments
   has_many :likes
@@ -7,7 +8,9 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  private
+
   def update_post_counter
-    author.update(posts_counter: author.posts.count)
+    author.increment!(:posts_counter)
   end
 end
