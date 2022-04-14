@@ -1,1 +1,14 @@
-<h1>Users index page</h1>
+<div>
+  <% @users.each do |user| %>
+  <div><%= link_to user_path(user.id) do %>
+    <img src="<%=user.photo %>">
+    <div>
+      <h3> <%= user.name %> </h3>
+      <div>
+        <p> Number of posts <%= user.posts_counter %></p>
+      </div>
+    </div>
+  <%end%>
+  </div>
+  <%end%>
+</div>
