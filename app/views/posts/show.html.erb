@@ -1,7 +1,18 @@
 <h1>Show from posts</h1>
 <div>
-  <h3> Title: <%= @post.title %> by: <%= @post.author.name %> </h3>
   <div>
-    <p>Comments: <%= @post.commets_counter %> Likes: <%= @post.likes_counter %></p>
+    <h3> Title: <%= @post.title %> by: <%= @post.author.name %> </h3>
+      <p>Comments: <%= @post.commets_counter %> Likes: <%= @post.likes_counter %></p>
   </div>
+  <div>
+    <p> <%= @post.text %> </p>
 </div>
+
+  <div>
+    <% @comments.each do |comment| %>
+      <div>
+        <h3> <%= comment.author.name %> </h3>
+        <p> <%= comment.text %> </p>
+      </div>
+    <% end %>
+  </div>
