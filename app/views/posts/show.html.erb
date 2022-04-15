@@ -2,6 +2,7 @@
   <div>
     <h3> Title: <%= @post.title %> by: <%= @post.author.name %> </h3>
       <p>Comments: <%= @post.commets_counter %> Likes: <%= @post.likes_counter %></p>
+      <%= render 'likes/form' %>
   </div>
   <div>
     <p> <%= @post.text %> </p>
