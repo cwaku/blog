@@ -8,12 +8,13 @@ class CommentsController < ApplicationController
     @new_comment = current_user.comments.new(
       post_id: @post.id,
       author_id: current_user.id,
-      text: comment_params[:text]
+      text: comment_params
     )
+    @new_comment.post_id = @post.id
     respond_to do |format|
       format.html do
         if @new_comment.save
-          redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", notice: 'Comment was successfully created.'
+          redirect_to user_post_path(@post.author_id, @post.id), notice: 'Comment was successfully created.'
         else
           render :new, alert: 'Comment was not created.'
         end
@@ -24,6 +25,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:comment).permit(:text)[:text]
   end
 end
