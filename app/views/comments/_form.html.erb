@@ -1,0 +1,7 @@
+<section>
+  <%= form_with model: @comment, url: user_post_comments_path(post_id: params[:id]), scope: :comment do |form| %>
+    <%= form.label :text %>
+    <%= form.text_area :text, placeholder: "Type here...", required: true %>
+    <%= form.submit "Add Comment" %>
+  <% end %>
+</section>

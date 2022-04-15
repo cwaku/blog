@@ -1,0 +1,5 @@
+<section>
+  <%= form_with model: @like, url: user_post_likes_path(post_id: params[:id]), scope: :like do |form| %>
+    <%= form.submit "Like" %>
+  <% end %>
+</section>

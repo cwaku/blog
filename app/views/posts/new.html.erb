@@ -1,0 +1,10 @@
+<div>
+  <h2>Create a new post</h2>
+  <%= form_with model: @post, url: user_posts_path, scope: :post do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Type here...", required: true %>
+    <%= f.label :text %>
+    <%= f.text_area :text, placeholder: "Type here...", required: true %>
+    <%= f.submit %>
+  <% end %>
+</div>
