@@ -7,7 +7,29 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.order(created_at: :desc)
-    @comment = Comment.new
-    @like = Like.new
+    @user = @post.author
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @new_post = current_user.posts.new(post_params)
+    respond_to do |format|
+      format.html do
+        if @new_post.save
+          redirect_to "/users/#{@new_post.author.id}/posts/", notice: 'Post was successfully created.'
+        else
+          render :new
+        end
+      end
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
