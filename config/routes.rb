@@ -14,11 +14,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show, :create, :new]
-end
+  end
 
-resources :posts do
-  resources :comments, only: %i[create destroy]
+  resources :posts do
+    resources :comments, only: %i[create destroy]
     resources :likes, only: %i[create]
-end
+  end
 
 end

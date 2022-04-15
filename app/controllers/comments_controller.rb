@@ -13,9 +13,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do
         if @new_comment.save
-          redirect_to "/users/#{@new_comment.author.id}/comments/", notice: 'Comment was successfully created.'
+          redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", notice: 'Comment was successfully created.'
         else
-          render :new
+          render :new, alert: 'Comment was not created.'
         end
       end
     end
