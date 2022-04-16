@@ -6,7 +6,7 @@ RSpec.describe Comment, type: :model do
     first_post = Post.create(title: 'Test Post', text: 'This is a test post', author: first_user)
     first_comment = Comment.create(text: 'This is a test comment', author: first_user, post: first_post)
 
-    comment.save
+    first_comment.save
 
     it 'should have a text' do
       expect(first_comment.text).to eq('This is a test comment')

@@ -11,7 +11,7 @@ RSpec.describe 'Requests::PostsController', type: :request do
     end
 
     it 'responds wit the correct text' do
-      expect(response.body).to include('Index from posts')
+      expect(response.body).to include('Create new Post')
     end
 
     it ' has the right response status' do
@@ -29,7 +29,7 @@ RSpec.describe 'Requests::PostsController', type: :request do
     end
 
     it 'responds with the correct text' do
-      expect(response.body).to include('Show from posts')
+      expect(response.body).to include('Add Comment')
     end
 
     it ' has the right response status' do
