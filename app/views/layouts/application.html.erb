@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| -%>
+      <%= content_tag :div, msg, class: "alert" %>
+    <% end -%>
     <%= yield %>
   </body>
 </html>
