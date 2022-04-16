@@ -25,5 +25,5 @@ RSpec.describe User, type: :model do
     it 'should have no posts' do
       expect(first_user.posts.count).to eq(0)
     end
-end
+  end
 end
