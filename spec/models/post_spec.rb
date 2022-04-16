@@ -22,10 +22,14 @@ RSpec.describe User, type: :model do
       expect(subject.author).to eq(first_user)
     end
 
+    # rubocop:disable layout/LineLength
+
     it 'checks character count' do
       subject.title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices dui eu tempor  xfsdgff sgfg frfrgfe suscipit. Ut sagittis risus nisi, fermentum ultricies arcu interdum et. Aenean interdum pretium magna. Etiam efficitur aliquam vestibulum. Duis convallis odio nisi. Cras sagittis sagittis turpis, non tincidunt augue sagittis at. Vivamus nec dui et lectus venenatis porttitor. Sed ut sagittis leo, egestas porttitor.'
       expect(subject).to_not be_valid
     end
+
+    # rubocop:enable layout/LineLength
 
     it 'loads recent comments' do
       expect(subject.recent_comments).to eq(subject.comments.last(5))
