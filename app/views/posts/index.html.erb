@@ -12,9 +12,13 @@
   <div><%= link_to user_post_path(@user.id, post.id) do %>
     <h3> <%= post.title %> by: <%= post.author.name %> </h3>
     <div>
-      <p>Comments: <%= post.commets_counter %> Likes: <%= post.likes_counter %></p>
+      <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
+      <% if can? :destroy, post %>
+      <%= button_to 'Delete', user_post_path(@user.id, post.id), method: :delete %>
+      <% end %>
     </div>
   <% end %>
+ 
   </div>
 
     <% post.recent_comments.each do |comment|%>
@@ -22,6 +26,7 @@
       <h3> <%= comment.author.name %> </h3>
       <p> <%= comment.text %> </p>
     </div>
+
     <%end%>
     
   <% end %>

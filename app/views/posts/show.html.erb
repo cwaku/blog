@@ -1,7 +1,7 @@
 <div>
   <div>
     <h3> Title: <%= @post.title %> by: <%= @post.author.name %> </h3>
-      <p>Comments: <%= @post.commets_counter %> Likes: <%= @post.likes_counter %></p>
+      <p>Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter %></p>
       <%= render 'likes/form' %>
   </div>
   <div>
@@ -14,6 +14,9 @@
         <h3> <%= comment.author.name %> </h3>
         <p> <%= comment.text %> </p>
       </div>
+      <% if can? :destroy, comment %>
+        <%= button_to 'Delete Comment', user_post_comment_path(@post.author_id, @post.id, comment.id), method: :delete, params: { comment_id: comment.id}%>
+      <% end %>
     <% end %>
 
     <%= render 'comments/form' %>
