@@ -1,14 +1,19 @@
 <div>
-  <% @users.each do |user| %>
-  <div><%= link_to user_path(user.id) do %>
-    <img src="<%=user.photo %>">
-    <div>
-      <h3> <%= user.name %> </h3>
+  <% if user_signed_in? %>
+    <% @users.each do |user| %>
+    <div><%= link_to user_path(user.id) do %>
+      <img src="<%=user.photo %>">
       <div>
-        <p> Number of posts <%= user.posts_counter %></p>
+        <h3> <%= user.name %> </h3>
+        <div>
+          <p> Number of posts <%= user.posts_counter %></p>
+        </div>
       </div>
+    <%end%>
     </div>
-  <%end%>
-  </div>
-  <%end%>
+    <%end%>
+  <% else %>
+    <p>You are not signed in.</p>
+    <%= link_to 'Login', new_user_session_path %>
+  <% end %>
 </div>
