@@ -26,10 +26,18 @@ To get a local copy of the app, run the following commans in your terminal:
 - `cd blog`
 - `bundle install`
 
-Run the server with:
+Run the following commands to run the app
+
+- `rails db:create`
+- `rails db:migrate`
 - `rails s`
 
-## Author
+In your browser, go to
+
+- `http://localhost:3000`
+
+
+## Authors
 
 👤 **Ricky Mormor**
 
@@ -37,6 +45,12 @@ Run the server with:
 - LinkedIn: [Ricky Mormor](www.linkedin.com/in/rickymormor)
 - Instagram: [@rickymormor](https://instagram.com/rickymormor)
 - Twitter: [@rickymormor](https://twitter.com/rickymormor)
+
+👤 **Fikerte Tesfaye** 
+
+- GitHub: [@Fikerte-T](https://github.com/Fikerte-T)
+- Twitter: [@tofikertesfaye](https://twitter.com/tofikertesfaye)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/fikerte-tesfaye-a68337216/)
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
