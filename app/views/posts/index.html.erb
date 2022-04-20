@@ -15,6 +15,7 @@
       <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
     </div>
   <% end %>
+ 
   </div>
 
     <% post.recent_comments.each do |comment|%>
@@ -22,6 +23,7 @@
       <h3> <%= comment.author.name %> </h3>
       <p> <%= comment.text %> </p>
     </div>
+
     <%end%>
     
   <% end %>

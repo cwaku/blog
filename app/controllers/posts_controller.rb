@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments, :likes).order(created_at: :desc)
@@ -29,6 +30,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    authorize! :destroy, @post, :message => "Unable to delete this post."
     @post.destroy
     redirect_to "/users/#{@new_post.author.id}/posts/", notice: 'Post was successfully deleted.'
   end

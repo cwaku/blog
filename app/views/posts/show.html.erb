@@ -14,6 +14,9 @@
         <h3> <%= comment.author.name %> </h3>
         <p> <%= comment.text %> </p>
       </div>
+      <% if can? :destroy, comment %>
+        <%= link_to 'Delete', user_post_path(user_id: comment.author.id, post_id: @post.id), method: :delete %>
+      <% end %>
     <% end %>
 
     <%= render 'comments/form' %>
