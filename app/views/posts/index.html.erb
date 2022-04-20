@@ -13,6 +13,9 @@
     <h3> <%= post.title %> by: <%= post.author.name %> </h3>
     <div>
       <p>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></p>
+      <% if can? :destroy, post %>
+      <%= button_to 'Delete', user_post_path(@user.id, post.id), method: :delete %>
+      <% end %>
     </div>
   <% end %>
  

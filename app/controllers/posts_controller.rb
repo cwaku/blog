@@ -30,9 +30,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    authorize! :destroy, @post, :message => "Unable to delete this post."
+    user = User.find(params[:user_id])
+    user.posts_counter -= 1
     @post.destroy
-    redirect_to "/users/#{@new_post.author.id}/posts/", notice: 'Post was successfully deleted.'
+    user.save
+    flash[:success] = 'Post was successfully deleted.'
+    redirect_to user_posts_path(user.id)
   end
 
   private

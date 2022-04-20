@@ -15,7 +15,7 @@
         <p> <%= comment.text %> </p>
       </div>
       <% if can? :destroy, comment %>
-        <%= link_to 'Delete', user_post_path(user_id: comment.author.id, post_id: @post.id), method: :delete %>
+        <%= button_to 'Delete Comment', user_post_comment_path(@post.author_id, @post.id, comment.id), method: :delete, params: { comment_id: comment.id}%>
       <% end %>
     <% end %>
 
