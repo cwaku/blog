@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  
   def new
     @comment = Comment.new
   end
@@ -28,7 +27,7 @@ class CommentsController < ApplicationController
     @post = @comment.post
     @post.comments_counter -= 1
     @comment.destroy
-    authorize! :destroy, @comment, :message => "Unable to delete this comment."
+    authorize! :destroy, @comment, message: 'Unable to delete this comment.'
     redirect_to user_post_path(@post.author_id, @post.id), notice: 'Comment was successfully destroyed.'
   end
 
