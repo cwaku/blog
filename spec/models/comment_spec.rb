@@ -4,8 +4,11 @@ RSpec.describe Comment, type: :model do
   describe 'The comments model' do
     before(:each) do
       first_user = User.create!(name: 'Ricky', photo: 'photo.jpg', bio: 'Alien from Earth 300.',
+
                                 email: 'suur@example.com', password: 'password')
+
       first_post = Post.create!(author_id: first_user.id, title: 'Hello', text: 'This is my first visit to Mars.')
+
       Comment.create!(post_id: first_post.id, author_id: first_user.id, text: 'Beep Bop!')
     end
 

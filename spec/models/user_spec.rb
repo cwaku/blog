@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'The user model' do
-    first_user = User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com', password: 'password')
+    first_user = User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com',
+                             password: 'password')
 
     before { first_user.save }
 

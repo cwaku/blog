@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Requests::UsersController', type: :request do
   describe 'GET /index' do
     before :each do
-      User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com', password: 'password')
+      User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com',
+                  password: 'password')
       get users_path
     end
 
@@ -22,7 +23,8 @@ RSpec.describe 'Requests::UsersController', type: :request do
 
   describe 'GET /show' do
     before :each do
-      first_user = User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com', password: 'password')
+      first_user = User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com',
+                               password: 'password')
       get user_path(id: first_user.id)
     end
 
