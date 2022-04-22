@@ -1,6 +1,5 @@
 module Api
   module V1
-    
     class CommentsController < ApplicationController
       def index
         if request.headers['ApiToken']

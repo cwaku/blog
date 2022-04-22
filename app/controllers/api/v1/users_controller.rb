@@ -1,6 +1,5 @@
 module Api
   module V1
-
     class UsersController < ApplicationController
       def register
         @user = User.new(name: params[:name], email: params[:email], password: params[:password])
@@ -12,9 +11,9 @@ module Api
       end
 
       def login
-        valid = User.find_by(email: params[:email]).valid_password? (params[:password])
+        valid = User.find_by(email: params[:email]).valid_password?(params[:password])
         if valid
-          @user= User.find_by(email: params[:email])
+          @user = User.find_by(email: params[:email])
           @user.apiToken = Devise.friendly_token.to_s
           @user.save
           respond_to do |format|
@@ -26,8 +25,8 @@ module Api
           respond_to do |format|
             format.json do
               render json: { success: false, message: 'User was not logged in.' }, status: :unprocessable_entity
-              end
             end
+          end
         end
       end
     end
