@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Requests::UsersController', type: :request do
   describe 'GET /index' do
     before :each do
-      get '/users'
+      User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com',
+                  password: 'password')
+      get users_path
     end
 
     it 'renders the correct template' do
@@ -11,17 +13,19 @@ RSpec.describe 'Requests::UsersController', type: :request do
     end
 
     it 'responds with the correct text' do
-      expect(response.body).to include('Number of posts')
+      expect(response.body).to include('Home')
     end
 
     it ' has the right response status' do
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET /show' do
     before :each do
-      get '/users/1'
+      first_user = User.create(name: 'Ricky', photo: 'pic.jpg', bio: 'I am a test user', email: 'aass@example.com',
+                               password: 'password')
+      get user_path(id: first_user.id)
     end
 
     it 'renders the correct template' do

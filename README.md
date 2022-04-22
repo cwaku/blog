@@ -36,6 +36,10 @@ In your browser, go to
 
 - `http://localhost:3000`
 
+## Testing
+- To install rspec: gem install rspec
+- To run all the tests: rspec ./spec
+
 
 ## Authors
 
