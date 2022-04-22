@@ -12,10 +12,10 @@ module Api
       end
 
       def login
-        valid = User.find_by(email: params[:email], password: params[:password])
+        valid = User.find_by(email: params[:email]).valid_password? (params[:password])
         if valid
-          @user.find_by(email: params[:email])
-          @user.api_token = Devise.friendly_token.to_s
+          @user= User.find_by(email: params[:email])
+          @user.apiToken = Devise.friendly_token.to_s
           @user.save
           respond_to do |format|
             format.json do

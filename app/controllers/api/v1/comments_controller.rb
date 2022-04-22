@@ -4,7 +4,7 @@ module Api
     class CommentsController < ApplicationController
       def index
         if request.headers['ApiToken']
-          @user = User.find_by(api_token: request.headers['ApiToken'])
+          @user = User.find_by(apiToken: request.headers['ApiToken'])
           @comments = Comment.where(author_id: @user.id)
 
           render json: { success: true, message: 'Comments found', comments: @comments }, status: :ok
@@ -15,12 +15,12 @@ module Api
 
       def create
         if request.headers['ApiToken']
-          @user = User.find_by(api_token: request.headers['ApiToken'])
+          @user = User.find_by(apiToken: request.headers['ApiToken'])
           @post = Post.find(params[:post_id])
           @new_comment = @user.comments.new(
             post_id: @post.id,
             author_id: @user.id,
-            text: comment_params
+            text: params[:text]
           )
           @new_comment.post_id = @post.id
           respond_to do |format|
