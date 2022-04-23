@@ -56,6 +56,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 # Add Cancan for authorization
 gem 'cancancan'
 
+# Add rswag to generate an API documentation
+gem 'rswag'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -86,4 +89,5 @@ end
 group :development, :test do
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rswag-specs'
 end

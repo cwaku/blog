@@ -1,0 +1,94 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/posts":
+    get:
+      summary: list posts
+      tags:
+      - Posts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    text:
+                      type: string
+                    comments_counter:
+                      type: integer
+                    likes_counter:
+                      type: integer
+                    author_id:
+                      type: integer
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                required:
+                - author_id
+                - title
+                - text
+                - comments_counter
+                - likes_counter
+                - created_at
+                - updated_at
+        '404':
+          description: invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: array
+                    items:
+                      type: string
+  "/api/v1/posts/create":
+    post:
+      summary: create post
+      parameters: []
+      responses:
+        '201':
+          description: Post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+              - user_id
+              - title
+              - text
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
