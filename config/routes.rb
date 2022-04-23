@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       post 'users/sign_up' => 'users#register'
       post 'users/sign_in' => 'users#login'
       get 'users/:user_id/posts' => 'posts#index'
-      post 'posts/create' => 'posts#create'
+      post 'users/:user_id/posts' => 'posts#create'
       get 'comments' => 'comments#index'
       post 'comments/create' => 'comments#create'
     

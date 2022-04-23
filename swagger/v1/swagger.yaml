@@ -15,6 +15,10 @@ paths:
         required: true
         schema:
           type: string
+      - name: ApiToken
+        in: header
+        schema:
+          type: string
       responses:
         '200':
           description: successful
@@ -62,10 +66,18 @@ paths:
                     type: array
                     items:
                       type: string
-  "/api/v1/posts/create":
     post:
       summary: create post
-      parameters: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ApiToken
+        in: header
+        schema:
+          type: string
       responses:
         '201':
           description: Post created
@@ -77,8 +89,6 @@ paths:
             schema:
               type: object
               properties:
-                user_id:
-                  type: integer
                 title:
                   type: string
                 text:
